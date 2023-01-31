@@ -23,6 +23,10 @@ void bfs(int num) {
 }
 
 int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	int node; cin >> node;
 	int edge; cin >> edge;
 
@@ -43,6 +47,6 @@ int main() {
 			bfs(i);
 		}
 	}
-	cout << cnt<< endl;
+	cout << cnt<< '\n';
 	return 0;
 } //main
