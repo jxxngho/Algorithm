@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-bool visited[499501]; //방문 여부
+bool visited[1001]; //방문 여부
 vector<int> v[1001];
 void bfs(int num) {
 
