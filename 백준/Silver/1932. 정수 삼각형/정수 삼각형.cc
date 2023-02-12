@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector <vector<int>> v(501, vector<int>(501, 0));
-vector <vector<int>> ans(501, vector<int>(501, 0));
+
 
 int main(){
 	ios_base::sync_with_stdio(false);
@@ -9,42 +8,45 @@ int main(){
 	cout.tie(NULL);
 	
 	int num; cin >> num; // 삼각형의 크기
-
+	vector <vector<int>> v(num+1, vector<int>(num+1, 0));
+	vector <vector<int>> dp(num+1, vector<int>(num+1, 0));
 	if (num == 1) { // num이 1일 경우 
 		int tmp; cin >> tmp;
 		cout << tmp << '\n';
 		return 0;
 	}
 
+	//초기화
 	for (int i = 1; i <=num; i++) {
 		for (int j = 1; j <= i; j++) {
 			int tmp; cin >> tmp;
 			v[i][j] = tmp;
 		}
-	} //초기화
+	} 
 
-
-	ans[2][1] = v[1][1] + v[2][1];
-	ans[2][2] = v[1][1] + v[2][2];
+	// 초기값 설정
+	dp[2][1] = v[1][1] + v[2][1];
+	dp[2][2] = v[1][1] + v[2][2];
 
 	for (int i = 3; i <= num; i++) {
 		for (int j = 1; j <= i; j++) {
 			if (j == 1 ) { // 양 끝일 경우
-				ans[i][j] = ans[i - 1][j] + v[i][j];
+				dp[i][j] = dp[i - 1][j] + v[i][j];
 			}
 			else if(j == i) { // 양 끝일 경우
-				ans[i][j] = ans[i - 1][j - 1] + v[i][j];
+				dp[i][j] = dp[i - 1][j - 1] + v[i][j];
 			}
-			else {
-				ans[i][j] = max(ans[i - 1][j - 1], ans[i - 1][j]) + v[i][j]; // 전에 값 중에 큰 것과 더하기해서 저장
+			else { //대각선 왼쪽 위 또는 대각선 오른쪽 위에서 큰 거랑 더하기
+				dp[i][j] = max(dp[i - 1][j - 1], dp[i - 1][j]) + v[i][j]; 
 			}
 		}
 	}
 
-	int max = ans[num][1];
+	// max 값 구하기
+	int max = dp[num][1];
 	for (int i = 2; i <= num; i++) {
-		if (max < ans[num][i]) {
-			max = ans[num][i];
+		if (max < dp[num][i]) {
+			max = dp[num][i];
 		}
 	}
 	cout << max << '\n';
