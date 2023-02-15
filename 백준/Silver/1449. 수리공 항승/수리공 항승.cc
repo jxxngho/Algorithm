@@ -20,10 +20,7 @@ int main(){
 	double pivot = v[0] - 0.5 + length; // 맨 처음 테이프 붙이는 범위
 	int count = 1; // 필요한 테이프의 개수
 	for (int i = 1; i < v.size(); i++) {
-		if (v[i] < pivot) { // 테이프가 붙은 범위 안에 있을 경우
-			continue;
-		}
-		else {
+		if (v[i] > pivot) { // 테이프가 붙은 범위를 넘었을 경우
 			count++;
 			pivot = v[i] - 0.5 + length; // 테이프 붙이는 범위
 		}
