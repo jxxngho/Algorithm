@@ -14,12 +14,12 @@ int main() {
 
 	sort(v.begin(), v.end(),greater<>());
 
-	vector<int> num; // 문제 번호
+	vector<int> num(5); // 문제 번호
 	int sum = 0; // 최종 점수
 
 	for (int i = 0; i < 5; i++) {
 		sum += v[i].first;
-		num.push_back(v[i].second);
+		num[i]=v[i].second;
 	}
 	cout << sum << '\n';
 	sort(num.begin(), num.end());
