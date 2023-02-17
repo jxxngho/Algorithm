@@ -6,7 +6,6 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-	int tmp;
 	for (int i = 0; i < 8; i++) {
 		cin >> v[i].first;
 		v[i].second = i + 1;
