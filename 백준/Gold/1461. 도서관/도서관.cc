@@ -35,7 +35,7 @@ int main() {
 		cout << ans << endl;
 		return 0;
 	}
-	else if(v_plus.empty()){ // 0보다 작은 점수만 있을 경우
+	else if(v_plus.empty()){ // 0보다 작은 숫자만 있을 경우
 		for (int i = 0; i <= v_minus.size(); i += carry) {
 			ans += abs(v_minus[i]) * 2;
 		}
@@ -43,7 +43,9 @@ int main() {
 		cout << ans << endl;
 		return 0;
 	}
-
+	// +벡터와 -벡터 carry만큼 거리 + 또는 - 해서 거리 구한후
+	// +벡터와 abs(-벡터) 둘 중 큰 값 하나 빼주기
+	// 이유 : 갔다가 다시 0으로 안와도 되니까
 	for (int i = v_plus.size() - 1; i >= 0; i -= carry) {
 		ans += v_plus[i] * 2;
 	}
@@ -57,6 +59,5 @@ int main() {
 	else {
 		ans += v_minus.front();
 	}
-	
 	cout << ans << endl;
 }
