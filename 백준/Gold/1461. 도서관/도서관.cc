@@ -22,15 +22,7 @@ int main() {
 			v_minus.push_back(tmp);
 		}
 	}
-	if (v_plus.size() == 1 && v_minus.size() == 0) {
-		cout << v_plus[0] << endl;
-		return 0;
-	}
-	if (v_minus.size() == 1 && v_plus.size() == 0) {
-		cout << abs(v_minus[0])<< endl;
-		return 0;
-	}
-	// 하나일 경우 바로 return 
+
 	// 정렬
 	sort(v_plus.begin(), v_plus.end());
 	sort(v_minus.begin(), v_minus.end());
@@ -52,31 +44,19 @@ int main() {
 		return 0;
 	}
 
+	for (int i = v_plus.size() - 1; i >= 0; i -= carry) {
+		ans += v_plus[i] * 2;
+	}
+	for (int i = 0; i <= v_minus.size(); i += carry) {
+		ans += abs(v_minus[i]) * 2;
+	}
 
-	if (v_minus.size()<carry && v_plus.size()<carry) {
-		if (abs(v_minus[0]) > v_plus.back()) {
-			cout << v_plus.back() * 2 + abs(v_minus[0]);
-			return 0;
-		}
-		else {
-			cout << v_plus.back() + abs(v_minus[0])*2;
-			return 0;
-		}
+	if (abs(v_minus.front()) <= v_plus.back()) {
+		ans -= v_plus.back();
 	}
 	else {
-		for (int i = v_plus.size() - 1; i >= 0; i -= carry) {
-			ans += v_plus[i] * 2;
-		}
-		for (int i = 0; i <= v_minus.size(); i += carry) {
-			ans += abs(v_minus[i]) * 2;
-		}
-
-		if (abs(v_minus.front()) <= v_plus.back()) {
-			ans -= v_plus.back();
-		}
-		else {
-			ans += v_minus.front();
-		}
+		ans += v_minus.front();
 	}
+	
 	cout << ans << endl;
 }
