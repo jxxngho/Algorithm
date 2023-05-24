@@ -19,12 +19,14 @@ int main(void)
 	}
 
 	for (int i = num; i  <day; i++) {
-		compare -= arr[i-num];
-		compare += arr[i];
-		if (max == compare) {
+		// 양쪽 끝 원소만 갱신
+		compare -= arr[i-num]; 
+		compare += arr[i]; // 
+
+		if (max == compare) { // max가 같을 때 
 			plag++; // 기간
 		}
-		else if (max < compare) {
+		else if (max < compare) { // max 갱신
 			plag = 1;
 			max = compare;
 		}
