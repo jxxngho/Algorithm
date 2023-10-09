@@ -13,7 +13,7 @@ int main(){
 		if (a == 1) { // 왼쪽 다리 하나일 경우
 			cout << b << endl;
 		}
-		else if (a == b) { // 양쪽 다리 갯수 같을 경우
+		else if (a == b) { // 양쪽 다리 개수 같을 경우
 			cout << 1 << endl;
 		}
 		else {
