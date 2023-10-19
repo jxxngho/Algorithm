@@ -14,7 +14,7 @@ int main(){
 	cin >> N;
 
 	while(end_idx!=N) {
-		if (sum == N) { // 정답일 경우 start만 왼쪽
+		if (sum == N) { // 정답일 경우 start 오른쪽
 			ans++; 
 			sum -= start_idx;
 			start_idx++;
