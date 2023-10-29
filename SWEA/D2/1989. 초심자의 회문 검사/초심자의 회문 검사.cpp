@@ -12,11 +12,9 @@ int main(int argc, char** argv)
 		int flag = 1; 
 
 		for (int i = 0; i < str.size() / 2; i++) { // 비교
-			if (str[i] == str[str.size() - 1 - i]) { 
-				continue;
-			}
-			else {
+			if (str[i] != str[str.size() - 1 - i]) { 
 				flag = 0;
+                break;
 			}
 		}
 		cout << "#" << i + 1 << " " << flag << endl;
