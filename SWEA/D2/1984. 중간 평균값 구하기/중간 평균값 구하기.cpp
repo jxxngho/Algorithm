@@ -26,6 +26,8 @@ int main(int argc, char** argv)
 		}
 		ans = ans / 8.0;
 		cout << "#" << i + 1 << " " << floor(ans + 0.5) << endl;
+        // 내림함수 floor()를 이용한 반올림 함수 구현
+		// -> floor(N)에 N값에 0.5를 더하기
 	}
-	return 0;//정상종료시 반드시 0을 리턴해야합니다.
+	return 0;
 }
