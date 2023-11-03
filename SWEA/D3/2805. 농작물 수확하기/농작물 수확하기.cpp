@@ -20,24 +20,22 @@ int main() {
 				arr[j][k] = tmp[k] - '0';
 			}
 		}
-		int a = 1;
-		int flag = num / 2; // 2
-		for (int h = 0; h <= num/2; h++) { // 커지는 구간
-			for (int g = 0; g < a; g++) {
-				ans += arr[h][flag + g];
+		
+		// 위 삼각형
+		for (int i = 0; i < num / 2; i++) {
+			for (int j = num / 2 - i; j <= num / 2 + i; j++) {
+				ans += arr[i][j];
 			}
-			flag--;
-			a += 2;
 		}
-		a -= 4;
-		flag += 2;
-		for (int h = num / 2 + 1; h < num; h++) { // 작아지는 구간
-			for (int g = 0; g < a; g++) {
-				ans += arr[h][flag + g];
+
+		// 아래 삼각형
+		for (int i = 0; i <= num / 2; i++) {
+			for (int j = i; j < num - i; j++) {
+				ans += arr[i + num / 2][j];
 			}
-			flag++;
-			a -= 2;
 		}
+
+
 		cout << "#" << i + 1 << " " << ans << endl;
 		memset(arr, 0, sizeof(arr));
 	}
