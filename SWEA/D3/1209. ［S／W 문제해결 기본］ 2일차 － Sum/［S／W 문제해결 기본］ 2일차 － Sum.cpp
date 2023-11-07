@@ -16,19 +16,18 @@ int main() {
 		for (int i = 0; i < 100; i++) {
 			int row=0, col=0;
 			for (int j = 0; j < 100; j++) {
-				row += arr[i][j];
-				col += arr[j][i];
+				row += arr[i][j]; // 행
+				col += arr[j][i]; // 열
 			}
 			max_num = max(max_num, max(row, col));
 		}
 		
 		int sum = 0, sum2=0;
-		for (int i = 0; i < 100; i++) {
-			sum = arr[i][i];
+		for (int i = 0; i < 100; i++) { // 대각선
+			sum += arr[i][i];
+			sum2 = arr[i][99 - i];
 		}
-		for (int i = 0; i < 100; i++) {
-			sum2 = arr[i][99-i];
-		}
+
 		max_num = max(max_num, max(sum, sum2));
 		cout << "#" << i + 1 << " " << max_num << endl;
 	}
