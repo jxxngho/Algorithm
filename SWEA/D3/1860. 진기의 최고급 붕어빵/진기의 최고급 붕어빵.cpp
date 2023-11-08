@@ -3,10 +3,6 @@
 #include <algorithm>
 using namespace std;
 
-
-
-
-
 int main() {
 	int t_c = 0;
 	cin >> t_c; // test case
@@ -22,7 +18,7 @@ int main() {
 			v.push_back(tmp);
 		}
 
-		sort(v.begin(), v.end());
+		sort(v.begin(), v.end()); //정렬
 		
 		int cnt = 0; // 붕어빵 개수
 		int seconds = 0; // 초
